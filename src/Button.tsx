@@ -1,4 +1,4 @@
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 const styles = {
   border: '1px solid #eee',
@@ -10,7 +10,9 @@ const styles = {
   margin: 10,
 };
 
-type Props = Pick<HTMLAttributes<HTMLButtonElement>, 'onClick'>;
+type Props = {
+  children: ReactNode
+} & Pick<HTMLAttributes<HTMLButtonElement>, 'onClick'>;
 const Button: FunctionComponent<Props> = ({ children, onClick }) => (
   <button onClick={onClick} style={styles} type="button">
     {children}
